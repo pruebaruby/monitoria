@@ -1,0 +1,31 @@
+<div class="full-img">
+    <div class="form-container">
+        <% if @passwordIncorrecta %>
+        <p class="text-danger">Codigo Estudiantil o Contraseña incorrectos</p>
+        <% end %>
+        <%= form_tag do %>
+            <div class="form-group">
+                <%= label_tag(:codigo, "Codigo Estudiantil") %>
+                <%= number_field_tag(:codigo, '', class: 'form-control', placeholder: 'Codigo') %>
+            </div>
+            <div class="form-group">
+                <%= label_tag(:password, "Contraseña") %>
+                <%= password_field_tag(:password, '', class: 'form-control', placeholder: 'Contraseña') %>
+            </div>
+            <%= submit_tag("Ingresar", :class=> 'btn btn-primary') %>
+        <% end %>
+        <!-- <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Codigo Estudiantil</label>
+              <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Codigo">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <a href="/dashboard_estudiante">Entrar</a>    
+            </button>
+          </form> -->
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<%= render :partial => 'shared/navbar' %>
+<div class="container animated fadeIn">
+    <div class="card" style="width: 18rem;margin: 20px;">
+        <div class="card-body">
+            <h5 class="card-title">Bienvenido <%= nombre %></h5>
+            <h6 class="card-subtitle mb-2 text-muted">Facultad:  <%= carrera %></h6>
+            <h6 class="card-subtitle mb-2 text-muted">pregrado</h6>
+            <p class="card-text">promedio: <%= promedio %></p>
+            <p class="card-text">matricula:  <%= matricula %></p>
+            <% if monitor  %>
+                <p>Monitor: si </p>
+            <% else  %>
+                <p>Monitor: no </p>
+            <% end  %>
+        </div>
+    </div>
+    <div class="card">
+        <% if monitorNo  %>
+            <p class="text-danger">El estudiante ya es monitor o no cumple con las condiciones para ser monitor</p>
+        <% end  %>
+        <% if materiaNoExiste  %>
+            <p class="text-danger">La materia que busca no existe</p>
+        <% end  %>
+        <div class="card-body">
+            <h1 class="card-title">Materias que monitoreo:  </h1>
+            <% if !monitor  %>
+            <p>Aun no eres monitor de ninguna materia, inscribete en una digitando el codigo de la materia</p>
+            <small>si no conoces el codigo de la materia puede verlos <a href="#">aqui</a></small>
+            <% end  %>
+            <%= form_tag("/dashboard_estudiante", method: "post") do %>
+                <div class="row">
+                    <div class="col">
+                        <%= number_field_tag(:codigoEstudiante, '', class: 'form-control', placeholder: 'Codigo de estudiante') %>
+                        <%= text_field_tag(:codigo, '', class: 'form-control', placeholder: 'Codigo de la materia') %>
+                    </div>
+                    <div class="col">
+                        <%= submit_tag("Inscribirme", :class=> 'btn btn-primary') %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

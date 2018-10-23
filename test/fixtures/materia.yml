@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  carrera: MyString
+  creditos: 1
+  monitor: false
+
+two:
+  nombre: MyString
+  carrera: MyString
+  creditos: 1
+  monitor: false
